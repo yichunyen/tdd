@@ -17,7 +17,6 @@ class TennisTest {
         shouldBeScore("Love All")
     }
 
-
     @Test
     fun fifteenLoveTest() {
         givenFirstPlayerScore(1)
@@ -36,9 +35,33 @@ class TennisTest {
         shouldBeScore("Forty Love")
     }
 
+    @Test
+    fun loveFifteenTest() {
+        givenSecondPlayerScore(1)
+        shouldBeScore("Love Fifteen")
+    }
+
+    @Test
+    fun loveThirtyTest() {
+        givenSecondPlayerScore(2)
+        shouldBeScore("Love Thirty")
+    }
+
+    @Test
+    fun loveFortyTest() {
+        givenSecondPlayerScore(3)
+        shouldBeScore("Love Forty")
+    }
+
     private fun givenFirstPlayerScore(times: Int) {
         for (index in 0 until times) {
             tennis.firstPlayerScore()
+        }
+    }
+
+    private fun givenSecondPlayerScore(times: Int) {
+        for (index in 0 until times) {
+            tennis.secondPlayerScore()
         }
     }
 

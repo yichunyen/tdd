@@ -1,24 +1,27 @@
 package yichunyen.tdd.tennis
 
 class Tennis {
-    private var firstPlayerScoreNumber: Int = 0
+    private var firstPlayerScoreTimes: Int = 0
+    private var secondPlayerScoreTimes: Int = 0
+    private val scoreMap = HashMap<Int, String>().apply {
+        put(0, "Love")
+        put(1, "Fifteen")
+        put(2, "Thirty")
+        put(3, "Forty")
+    }
 
     fun score(): String {
-        if (firstPlayerScoreNumber == 1) {
-            return "Fifteen Love"
+        if (firstPlayerScoreTimes != secondPlayerScoreTimes) {
+            return "${scoreMap[firstPlayerScoreTimes]} ${scoreMap[secondPlayerScoreTimes]}"
         }
-
-        if (firstPlayerScoreNumber == 2) {
-            return "Thirty Love"
-        }
-
-        if (firstPlayerScoreNumber == 3) {
-            return "Forty Love"
-        }
-        return "Love All"
+        return "Love All" // 0:0
     }
 
     fun firstPlayerScore() {
-        firstPlayerScoreNumber++
+        firstPlayerScoreTimes++
+    }
+
+    fun secondPlayerScore() {
+        secondPlayerScoreTimes++
     }
 }
