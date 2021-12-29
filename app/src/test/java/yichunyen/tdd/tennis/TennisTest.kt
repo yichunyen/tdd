@@ -65,6 +65,12 @@ class TennisTest {
         shouldBeScore("Thirty All")
     }
 
+    @Test
+    fun deuceTest() {
+        givenEqualPlayerScore(3)
+        shouldBeScore("Deuce")
+    }
+
     private fun givenFirstPlayerScore(times: Int) {
         for (index in 0 until times) {
             tennis.firstPlayerScore()
