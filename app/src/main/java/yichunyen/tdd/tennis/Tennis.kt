@@ -11,15 +11,11 @@ class Tennis {
     }
 
     fun score(): String {
-        if (firstPlayerScoreTimes != secondPlayerScoreTimes) {
-            return "${scoreMap[firstPlayerScoreTimes]} ${scoreMap[secondPlayerScoreTimes]}"
+        return if(firstPlayerScoreTimes == secondPlayerScoreTimes) {
+            "${scoreMap[firstPlayerScoreTimes]} All"
+        } else {
+            "${scoreMap[firstPlayerScoreTimes]} ${scoreMap[secondPlayerScoreTimes]}"
         }
-
-        if(firstPlayerScoreTimes == secondPlayerScoreTimes) {
-            return "${scoreMap[firstPlayerScoreTimes]} All"
-        }
-
-        return "Love All" // 0:0
     }
 
     fun firstPlayerScore() {
