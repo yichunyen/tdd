@@ -53,6 +53,20 @@ class TennisTest {
         shouldBeScore("Love Forty")
     }
 
+    @Test
+    fun fifteenAllTest() {
+        givenFirstPlayerScore(1)
+        givenSecondPlayerScore(1)
+        shouldBeScore("Fifteen All")
+    }
+
+    @Test
+    fun thirtyAllTest() {
+        givenFirstPlayerScore(2)
+        givenSecondPlayerScore(2)
+        shouldBeScore("Thirty All")
+    }
+
     private fun givenFirstPlayerScore(times: Int) {
         for (index in 0 until times) {
             tennis.firstPlayerScore()

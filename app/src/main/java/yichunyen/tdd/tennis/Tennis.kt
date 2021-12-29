@@ -14,6 +14,11 @@ class Tennis {
         if (firstPlayerScoreTimes != secondPlayerScoreTimes) {
             return "${scoreMap[firstPlayerScoreTimes]} ${scoreMap[secondPlayerScoreTimes]}"
         }
+
+        if(firstPlayerScoreTimes == secondPlayerScoreTimes) {
+            return "${scoreMap[firstPlayerScoreTimes]} All"
+        }
+
         return "Love All" // 0:0
     }
 
