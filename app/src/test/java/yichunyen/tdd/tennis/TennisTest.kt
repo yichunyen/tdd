@@ -55,15 +55,13 @@ class TennisTest {
 
     @Test
     fun fifteenAllTest() {
-        givenFirstPlayerScore(1)
-        givenSecondPlayerScore(1)
+        givenEqualPlayerScore(1)
         shouldBeScore("Fifteen All")
     }
 
     @Test
     fun thirtyAllTest() {
-        givenFirstPlayerScore(2)
-        givenSecondPlayerScore(2)
+        givenEqualPlayerScore(2)
         shouldBeScore("Thirty All")
     }
 
@@ -77,6 +75,11 @@ class TennisTest {
         for (index in 0 until times) {
             tennis.secondPlayerScore()
         }
+    }
+
+    private fun givenEqualPlayerScore(times: Int) {
+        givenFirstPlayerScore(times)
+        givenSecondPlayerScore(times)
     }
 
     private fun shouldBeScore(excepted: String) {
