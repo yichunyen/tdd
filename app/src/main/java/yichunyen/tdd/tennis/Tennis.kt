@@ -11,14 +11,26 @@ class Tennis {
     }
 
     fun score(): String {
-        if (firstPlayerScoreTimes == secondPlayerScoreTimes) {
-            return if (firstPlayerScoreTimes >= 3) {
-                "Deuce"
+        if (isSameScore()) {
+            return if (isDeuce()) {
+                getDeuce()
             } else {
                 "${scoreMap[firstPlayerScoreTimes]} All"
             }
         }
         return "${scoreMap[firstPlayerScoreTimes]} ${scoreMap[secondPlayerScoreTimes]}"
+    }
+
+    private fun isSameScore(): Boolean {
+        return firstPlayerScoreTimes == secondPlayerScoreTimes
+    }
+
+    private fun isDeuce(): Boolean {
+        return firstPlayerScoreTimes >= 3
+    }
+
+    private fun getDeuce() : String {
+        return "Deuce"
     }
 
     fun firstPlayerScore() {
