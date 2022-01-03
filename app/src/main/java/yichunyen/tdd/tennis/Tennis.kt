@@ -2,7 +2,7 @@ package yichunyen.tdd.tennis
 
 import kotlin.math.abs
 
-class Tennis(private val firstPlayerName: String, val secondPlayerName: String) {
+class Tennis(private val firstPlayerName: String, private val secondPlayerName: String) {
     private var firstPlayerScoreTimes: Int = 0
     private var secondPlayerScoreTimes: Int = 0
     private val scoreMap = HashMap<Int, String>().apply {
