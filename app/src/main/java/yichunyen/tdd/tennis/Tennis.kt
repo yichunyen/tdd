@@ -22,7 +22,7 @@ class Tennis(private val firstPlayerName: String, val secondPlayerName: String) 
         }
 
         if (firstPlayerScoreTimes > 3 || secondPlayerScoreTimes > 3) {
-            if (abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 1) {
+            if (isAdv()) {
                 return "${getPlayerName()} Adv"
             }
         }
@@ -37,14 +37,18 @@ class Tennis(private val firstPlayerName: String, val secondPlayerName: String) 
         return firstPlayerScoreTimes >= 3
     }
 
-    private fun getDeuce() : String {
+    private fun getDeuce(): String {
         return "Deuce"
     }
 
-    private fun getPlayerName() : String {
-        return if(firstPlayerScoreTimes > secondPlayerScoreTimes) firstPlayerName else secondPlayerName
+    private fun getPlayerName(): String {
+        return if (firstPlayerScoreTimes > secondPlayerScoreTimes) firstPlayerName else secondPlayerName
     }
-    
+
+    private fun isAdv(): Boolean {
+        return abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 1
+    }
+
     fun firstPlayerScore() {
         firstPlayerScoreTimes++
     }
