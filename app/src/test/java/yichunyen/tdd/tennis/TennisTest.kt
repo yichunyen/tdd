@@ -9,7 +9,7 @@ class TennisTest {
 
     @Before
     fun setup() {
-        tennis = Tennis()
+        tennis = Tennis("First Player")
     }
 
     @Test
@@ -55,20 +55,32 @@ class TennisTest {
 
     @Test
     fun fifteenAllTest() {
-        givenEqualPlayerScore(1)
+        givenDeuceScore(1)
         shouldBeScore("Fifteen All")
     }
 
     @Test
     fun thirtyAllTest() {
-        givenEqualPlayerScore(2)
+        givenDeuceScore(2)
         shouldBeScore("Thirty All")
     }
 
     @Test
     fun deuceTest() {
-        givenEqualPlayerScore(3)
+        givenDeuce()
         shouldBeScore("Deuce")
+    }
+
+    @Test
+    fun firstPlayerAdvTest() {
+        givenDeuce()
+        givenFirstPlayerScore(1)
+        shouldBeScore("First Player Adv")
+    }
+
+    private fun givenDeuce() {
+        givenFirstPlayerScore(3)
+        givenSecondPlayerScore(3)
     }
 
     private fun givenFirstPlayerScore(times: Int) {
@@ -83,7 +95,7 @@ class TennisTest {
         }
     }
 
-    private fun givenEqualPlayerScore(times: Int) {
+    private fun givenDeuceScore(times: Int) {
         givenFirstPlayerScore(times)
         givenSecondPlayerScore(times)
     }

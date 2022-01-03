@@ -1,6 +1,6 @@
 package yichunyen.tdd.tennis
 
-class Tennis {
+class Tennis(private val firstPlayerName: String) {
     private var firstPlayerScoreTimes: Int = 0
     private var secondPlayerScoreTimes: Int = 0
     private val scoreMap = HashMap<Int, String>().apply {
@@ -16,6 +16,12 @@ class Tennis {
                 getDeuce()
             } else {
                 "${scoreMap[firstPlayerScoreTimes]} All"
+            }
+        }
+
+        if (firstPlayerScoreTimes > 3) {
+            if (firstPlayerScoreTimes - secondPlayerScoreTimes == 1) {
+                return firstPlayerName + " Adv"
             }
         }
         return "${scoreMap[firstPlayerScoreTimes]} ${scoreMap[secondPlayerScoreTimes]}"
