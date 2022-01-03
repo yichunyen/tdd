@@ -9,7 +9,7 @@ class TennisTest {
 
     @Before
     fun setup() {
-        tennis = Tennis("First Player")
+        tennis = Tennis("First Player", "Second Player")
     }
 
     @Test
@@ -76,6 +76,13 @@ class TennisTest {
         givenDeuce()
         givenFirstPlayerScore(1)
         shouldBeScore("First Player Adv")
+    }
+
+    @Test
+    fun secondPlayerAdvTest() {
+        givenDeuce()
+        givenSecondPlayerScore(1)
+        shouldBeScore("Second Player Adv")
     }
 
     private fun givenDeuce() {

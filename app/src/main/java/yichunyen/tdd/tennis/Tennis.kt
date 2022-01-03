@@ -1,6 +1,8 @@
 package yichunyen.tdd.tennis
 
-class Tennis(private val firstPlayerName: String) {
+import kotlin.math.abs
+
+class Tennis(private val firstPlayerName: String, val secondPlayerName: String) {
     private var firstPlayerScoreTimes: Int = 0
     private var secondPlayerScoreTimes: Int = 0
     private val scoreMap = HashMap<Int, String>().apply {
@@ -19,9 +21,9 @@ class Tennis(private val firstPlayerName: String) {
             }
         }
 
-        if (firstPlayerScoreTimes > 3) {
-            if (firstPlayerScoreTimes - secondPlayerScoreTimes == 1) {
-                return firstPlayerName + " Adv"
+        if (firstPlayerScoreTimes > 3 || secondPlayerScoreTimes > 3) {
+            if (abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 1) {
+                return "${getPlayerName()} Adv"
             }
         }
         return "${scoreMap[firstPlayerScoreTimes]} ${scoreMap[secondPlayerScoreTimes]}"
@@ -39,6 +41,10 @@ class Tennis(private val firstPlayerName: String) {
         return "Deuce"
     }
 
+    private fun getPlayerName() : String {
+        return if(firstPlayerScoreTimes > secondPlayerScoreTimes) firstPlayerName else secondPlayerName
+    }
+    
     fun firstPlayerScore() {
         firstPlayerScoreTimes++
     }
