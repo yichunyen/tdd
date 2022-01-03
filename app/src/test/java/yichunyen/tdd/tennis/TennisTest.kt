@@ -85,6 +85,20 @@ class TennisTest {
         shouldBeScore("Second Player Adv")
     }
 
+    @Test
+    fun firstPlayerWinTest() {
+        givenDeuce()
+        givenFirstPlayerScore(2)
+        shouldBeScore("First Player Win")
+    }
+
+    @Test
+    fun secondPlayerWinTest() {
+        givenDeuce()
+        givenSecondPlayerScore(2)
+        shouldBeScore("Second Player Win")
+    }
+
     private fun givenDeuce() {
         givenFirstPlayerScore(3)
         givenSecondPlayerScore(3)

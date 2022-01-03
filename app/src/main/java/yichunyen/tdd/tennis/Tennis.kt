@@ -25,6 +25,8 @@ class Tennis(private val firstPlayerName: String, val secondPlayerName: String) 
             if (isAdv()) {
                 return "${getPlayerName()} Adv"
             }
+
+            return "${getPlayerName()} Win"
         }
         return "${scoreMap[firstPlayerScoreTimes]} ${scoreMap[secondPlayerScoreTimes]}"
     }
