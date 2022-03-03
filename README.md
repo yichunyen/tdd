@@ -1,1 +1,2 @@
 # TDD
+This project explores my ideas how I understand Test Drive Development in tennis score. If you are interested in this project, please read [tennis scoring system](https://en.wikipedia.org/wiki/Tennis_scoring_system). 
